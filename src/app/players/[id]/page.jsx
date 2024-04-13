@@ -12,7 +12,7 @@ export default async function PlayerProfilePage({ params }) {
     player;
 
   return (
-    <div className="w-full flex flex-col items-center p-6">
+    <div className="dark:bg-gray-800 bg-white dark:text-white w-full flex flex-col items-center p-6">
       <div className="text-center">
         <h1 className="text-xl font-bold">{name}</h1>
         <img
@@ -36,7 +36,7 @@ export default async function PlayerProfilePage({ params }) {
               {team.groups?.map((group, groupIndex) => (
                 <div
                   key={groupIndex}
-                  className="mt-4 p-4 bg-gray-100 rounded shadow w-full max-w-sm"
+                  className="dark:bg-gray-900 mt-4 p-4 bg-gray-100 rounded shadow w-full max-w-sm"
                 >
                   <h3 className="text-md font-semibold mb-2">{group.name}</h3>
                   <ul>
@@ -45,7 +45,7 @@ export default async function PlayerProfilePage({ params }) {
                         key={statIndex}
                         className="flex justify-between items-center py-1"
                       >
-                        <span className="text-gray-600">
+                        <span className="dark:text-gray-300">
                           {stat.name?.replace(/_/g, " ") || "Unknown Stat"}
                         </span>
                         <span className="font-medium">

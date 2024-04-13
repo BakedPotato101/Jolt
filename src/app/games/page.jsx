@@ -6,8 +6,10 @@ export default async function Page() {
   console.log("fetched games", gameData);
 
   return (
-    <div className="pt-20 space-y-4">
-      <h1 className="text-3xl font-bold text-center mb-10">Games</h1>
+    <div className="dark:bg-gray-800 bg-white dark:text-white pt-20 space-y-4">
+      <h1 className="text-3xl font-bold text-center mb-10">
+        Games
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
         {gameData.map((game) => {
           const homeScore = game.scores.home.total;
@@ -16,17 +18,17 @@ export default async function Page() {
 
           return (
             <Link
-              className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100"
+              className="dark:bg-gray-900 block p-6 max-w-sm bg-white rounded-lg border border-gray-200 hover:bg-gray-200 shadow-md hover:dark:bg-gray-800"
               href={`/games/${game.game.id}`}
               key={game.id}
             >
-              <div className="flex justify-between items-center mb-4">
+              <div className="dark:text-white flex justify-between items-center mb-4">
                 <img
                   src={game.teams.home.logo}
                   alt={game.teams.home.name}
                   className="h-16 w-16 mr-2"
                 />
-                <span className="text-lg font-bold">
+                <span className="dark:text-white text-lg font-bold">
                   {game.teams.home.name}
                 </span>
                 <span
@@ -43,7 +45,7 @@ export default async function Page() {
                   alt={game.teams.away.name}
                   className="h-16 w-16 mr-2"
                 />
-                <span className="text-lg font-bold">
+                <span className="dark:text-white text-lg font-bold">
                   {game.teams.away.name}
                 </span>
                 <span

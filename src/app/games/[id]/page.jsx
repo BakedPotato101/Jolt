@@ -7,11 +7,11 @@ export default async function Page({ params }) {
   const teamStatsReponse = await fetchTeamStatistics(params.id);
 
   return (
-    <div className="pt-20 space-y-4">
+    <div className="dark:bg-gray-800 bg-white dark:text-white pt-20 space-y-4">
       <h2 className="text-4xl font-bold text-center mb-10">Game Stats</h2>
       <div
         key={game.id}
-        className="bg-white rounded-lg border border-gray-200 shadow-md"
+        className="dark:bg-gray-800 bg-white rounded-lg border border-gray-200 shadow-md"
       >
         <div className="p-4 flex justify-between items-center">
           <div className="flex items-center">
@@ -54,10 +54,13 @@ export default async function Page({ params }) {
           </div>
         </div>
         <div className="p-4">
-          <div className="text-gray-600">Team Stats:</div>
-          <div className="text-gray-600">
+          <div className="dark:text-white">Team Stats:</div>
+          <div className="dark:text-white">
             {teamStatsReponse.map((teamStats) => (
-              <div key={teamStats.id} className="bg-gray-100 rounded-lg border border-gray-200 shadow-md p-4 mb-4">
+              <div
+                key={teamStats.id}
+                className="dark:bg-gray-900 bg-gray-100 rounded-lg border border-gray-200 shadow-md p-4 mb-4"
+              >
                 <div className="flex items-center mb-4">
                   <img
                     src={teamStats.team.logo}

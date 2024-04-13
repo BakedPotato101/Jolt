@@ -10,7 +10,7 @@ export default async function page(params) {
   console.log(playerData);
   console.log(team[0]);
   return (
-    <div className="bg-gray-800 min-h-screen text-white p-8 pt-20">
+    <div className="bg-white dark:bg-gray-800 dark:text-white min-h-screen text-black p-8 pt-20">
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-12">
           <div>
@@ -50,7 +50,6 @@ export default async function page(params) {
           </div>
         </div>
 
-        {/* Roster Placeholder */}
         <div className="border-t border-gray-400 pt-8">
           <h2 className="text-2xl font-semibold mb-4">Team Roster</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -58,12 +57,13 @@ export default async function page(params) {
               <Link
                 href={`/players/${player.id}`}
                 key={player.id}
-                className="bg-gray-900 p-4 rounded-lg border border-gray-700"
+                className="dark:hover:bg-gray-800 dark:bg-gray-900 p-4 rounded-lg border border-gray-700"
               >
                 <img
                   src={player.image || "https://via.placeholder.com/150"}
                   alt={player.name}
-                  className="w-24 h-24 object-cover rounded-full mx-auto"></img>
+                  className="w-24 h-24 object-cover rounded-full mx-auto"
+                ></img>
                 <h3 className="text-lg font-semibold">{player.name}</h3>
                 <p className="text-gray-400">{player.position}</p>
               </Link>
