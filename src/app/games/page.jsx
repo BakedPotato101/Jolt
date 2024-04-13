@@ -10,7 +10,6 @@ export default async function Page() {
       <h1 className="text-3xl font-bold text-center mb-10">Games</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
         {gameData.map((game) => {
-          // Assuming the structure of your game object is correct
           const homeScore = game.scores.home.total;
           const awayScore = game.scores.away.total;
           const isHomeWinner = homeScore > awayScore;

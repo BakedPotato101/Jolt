@@ -57,7 +57,7 @@ export default async function Page({ params }) {
           <div className="text-gray-600">Team Stats:</div>
           <div className="text-gray-600">
             {teamStatsReponse.map((teamStats) => (
-              <div className="bg-gray-100 rounded-lg border border-gray-200 shadow-md p-4 mb-4">
+              <div key={teamStats.id} className="bg-gray-100 rounded-lg border border-gray-200 shadow-md p-4 mb-4">
                 <div className="flex items-center mb-4">
                   <img
                     src={teamStats.team.logo}
