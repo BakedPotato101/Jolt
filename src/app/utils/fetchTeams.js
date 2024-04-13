@@ -1,4 +1,4 @@
-export default async function fetchTeams() {
+export async function fetchTeams() {
   const response = await fetch('https://v1.american-football.api-sports.io/teams?season=2023&league=1', {
     method: 'GET',
     headers: {
