@@ -1,8 +1,8 @@
-import { fetchGames } from "../utils/fetchGames";
+import { fetchGamesBySeason } from "../utils/fetchGamesBySeason";
 import Link from "next/link";
 
 export default async function Page() {
-  const gameData = await fetchGames();
+  const gameData = await fetchGamesBySeason(2023);
   console.log("fetched games", gameData);
 
   return (

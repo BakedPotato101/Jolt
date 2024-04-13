@@ -1,5 +1,5 @@
-export default async function fetchGamesById(id) {
-    const response = await fetch('https://v1.american-football.api-sports.io/games?id=' + id, {
+export async function fetchTeamStatistics(id) {
+    const response = await fetch('https://v1.american-football.api-sports.io/games/statistics/teams?id=' + id, {
       method: 'GET',
       headers: {
         'x-rapidapi-key': process.env.API_KEY,

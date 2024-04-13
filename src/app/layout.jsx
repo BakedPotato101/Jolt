@@ -8,7 +8,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Jolt App</title>
       </head>
-      <body>
+      <body className="duration-100 ">
         <div className="flex bg-white dark:bg-black min-h-screen">
           <Sidebar />
           <div
