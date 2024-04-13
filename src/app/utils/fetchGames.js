@@ -1,5 +1,5 @@
-export default async function fetchGames() { 
-    const response = await fetch('https://v1.american-football.api-sports.io/games?date=2023', {
+export async function fetchGames() { 
+    const response = await fetch('https://v1.american-football.api-sports.io/games?season=2023&league=1', {
     method: 'GET',
     headers: {
       'x-rapidapi-key': process.env.API_KEY,
@@ -13,6 +13,7 @@ export default async function fetchGames() {
   }
 
   const data = await response.json();
+  console.log(data)
   if (data.response == []) {
     throw new Error(data.errors[0].message);
   }
