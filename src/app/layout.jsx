@@ -9,9 +9,9 @@ export default function RootLayout({ children }) {
         <title>Jolt App</title>
       </head>
       <body>
-        <div className="flex bg-white dark:bg-black">
+        <div className="flex bg-white dark:bg-black ">
           <Sidebar />
-          <div className="flex-1 md:flex h-screen relative">
+          <div className="flex-1 md:flex h-screen relative pl-24">
             <Header />
             <div className="w-full">{children}</div>
           </div>
