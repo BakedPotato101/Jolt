@@ -4,16 +4,19 @@ import "./globals.css";
 
 export default function RootLayout({ children }) {
   return (
-    <html className="dark">
+    <html>
       <head>
         <title>Jolt App</title>
       </head>
       <body>
-        <div className="flex bg-white dark:bg-black ">
+        <div className="flex bg-white dark:bg-black min-h-screen">
           <Sidebar />
-          <div className="flex-1 md:flex h-screen relative pl-24">
+          <div
+            className="flex flex-col flex-grow"
+            style={{ marginLeft: "6rem" }}
+          >
             <Header />
-            <div className="w-full">{children}</div>
+            <div className="overflow-auto flex-grow">{children}</div>
           </div>
         </div>
       </body>
