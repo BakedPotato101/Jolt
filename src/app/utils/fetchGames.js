@@ -1,21 +1,38 @@
-export async function fetchGames() { 
-    const response = await fetch('https://v1.american-football.api-sports.io/games?season=2023&league=1', {
-    method: 'GET',
-    headers: {
-      'x-rapidapi-key': process.env.API_KEY,
-      'x-rapidapi-host': 'v1.american-football.api-sports.io',
-    },
-  });
-  console.log(response)
+import { fetchPlayer } from "../utils/fetchPlayer";
 
-  if (!response.ok) {
-    throw new Error('Failed to fetch game');
-  }
+export default function PlayerPage() {
+  const [playerStats, setPlayerStats] = useState([]);
 
-  const data = await response.json();
-  console.log(data)
-  if (data.response == []) {
-    throw new Error(data.errors[0].message);
-  }
-  return data.response;
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const players = await fetchPlayer();
+        setPlayerStats(players);
+      } catch (error) {
+        console.error("Error fetching player stats:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  return (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-4">Player Statistics</h1>
+      
+      {playerStats && playerStats.length > 0 && (
+        <ul className="divide-y divide-gray-300">
+          {playerStats.map((player) => (
+            <li key={player.id} className="py-2">
+              <strong>{player.name}</strong> - {player.position}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {playerStats && playerStats.length === 0 && (
+        <p>No player statistics available</p>
+      )}
+    </div>
+  );
 }

@@ -16,5 +16,6 @@ export async function fetchTeams() {
   if (data.response == []) {
     throw new Error(data.errors[0].message);
   }
+  console.log(data);
   return data.response;
 }
