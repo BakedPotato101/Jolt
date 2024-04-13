@@ -1,5 +1,5 @@
-export async function fetchPlayers() {
-    const response = await fetch('https://v1.american-football.api-sports.io/players?season=2023', {
+export default async function fetchPlayersByTeam(team) {
+    const response = await fetch('https://v1.american-football.api-sports.io/players?season=2023&team=' + team, {
       method: 'GET',
       headers: {
         'x-rapidapi-key': process.env.API_KEY,

@@ -1,5 +1,5 @@
-export async function fetchGames() { 
-    const response = await fetch('https://v1.american-football.api-sports.io/games?season=2023&league=1', {
+export default async function fetchPlayerStatisticById(id) {
+  const response = await fetch('https://v1.american-football.api-sports.io/players/statistics?season=2023&id=' + id, {
     method: 'GET',
     headers: {
       'x-rapidapi-key': process.env.API_KEY,
@@ -9,13 +9,13 @@ export async function fetchGames() {
   console.log(response)
 
   if (!response.ok) {
-    throw new Error('Failed to fetch game');
+    throw new Error('Failed to fetch teams');
   }
 
   const data = await response.json();
-  console.log(data);
   if (data.response == []) {
     throw new Error(data.errors[0].message);
   }
+  console.log(data);
   return data.response;
 }
